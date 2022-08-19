@@ -11,17 +11,39 @@ function updateProductNumber(isIncrease, inputId) {
     return newNumber;
 }
 
-function productAmount(inputId, lastProductNumber) {
-    const productTotal = document.getElementById(inputId);
-    if (inputId === 'phone-total') {
-        productTotal.innerText = lastProductNumber * 1219;
-    } else if (inputId === 'case-total') {
-        productTotal.innerText = lastProductNumber * 59;
-    }
-    let productPrice = productTotal.innerText;
-    let productPriceTotal = parseFloat(productPrice);
-    return productPriceTotal;
+//calculating total phone price 
+function totalPhonePrice(lastPhoneNumber) {
+    const phoneTotalPrice = lastPhoneNumber * 1219;
+    const phoneTotal = document.getElementById('phone-total');
+    phoneTotal.innerText = phoneTotalPrice;
 }
+
+//calculating total case price
+function totalCasePrice(lastCaseNumber) {
+    const caseTotalPrice = lastCaseNumber * 59;
+    const caseTotal = document.getElementById('case-total');
+    caseTotal.innerText = caseTotalPrice;
+}
+
+//finding product total price
+function getPhoneTotalPriceById(elemId) {
+    const productTotalElement = document.getElementById(elemId);
+    const productTotalString = productTotalElement.innerText
+    const productTotalPrice = parseFloat(productTotalString);
+    return productTotalPrice;
+}
+
+//calculate subtotal amount
+function calculateTotal() {
+    const currentPhoneTotalPrice = getPhoneTotalPriceById('phone-total');
+    const currentCaseTotal = getPhoneTotalPriceById('case-total');
+    const subTotalPrice = currentPhoneTotalPrice + currentCaseTotal;
+    const currentSubTotal = document.getElementById('sub-total');
+    currentSubTotal.innerText = subTotalPrice;
+    return subTotalPrice;
+}
+
+
 
 
 

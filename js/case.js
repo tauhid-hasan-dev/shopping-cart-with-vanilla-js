@@ -3,10 +3,16 @@ const btnMinusCase = document.getElementById('btn-case-minus');
 
 btnPlusCase.addEventListener('click', () => {
     const lastCaseNumber = updateProductNumber(true, 'input-field-case');
-    productAmount('case-total', lastCaseNumber);
+    totalCasePrice(lastCaseNumber);
+    const itemTotal = calculateTotal();
+    taxAmountTotal(itemTotal);
+
+
 });
 
 btnMinusCase.addEventListener('click', () => {
     const lastCaseNumber = updateProductNumber(false, 'input-field-case');
-    productAmount('case-total', lastCaseNumber);
+    totalCasePrice(lastCaseNumber);
+    const itemTotal = calculateTotal();
+    taxAmountTotal(itemTotal);
 });
