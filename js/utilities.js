@@ -1,3 +1,4 @@
+//adding and deleting items from shopping cart
 function updateProductNumber(isIncrease, inputId) {
     const inputFieldProduct = document.getElementById(inputId);
     const inputFieldString = inputFieldProduct.value;
@@ -34,7 +35,7 @@ function getPhoneTotalPriceById(elemId) {
 }
 
 //calculate subtotal amount
-function calculateTotal() {
+function calculateSubTotal() {
     const currentPhoneTotalPrice = getPhoneTotalPriceById('phone-total');
     const currentCaseTotal = getPhoneTotalPriceById('case-total');
     const subTotalPrice = currentPhoneTotalPrice + currentCaseTotal;
@@ -42,6 +43,19 @@ function calculateTotal() {
     currentSubTotal.innerText = subTotalPrice;
     return subTotalPrice;
 }
+
+//tax amount total calculation
+function taxAmountTotal(itemTotal) {
+    const taxAmountElement = document.getElementById('tax');
+    const taxAmountDecimal = itemTotal * 0.1;
+    const taxAmountString = taxAmountDecimal.toFixed(2)
+    const taxAmount = parseFloat(taxAmountString);
+    taxAmountElement.innerText = taxAmount;
+    return taxAmount;
+}
+
+
+
 
 
 
